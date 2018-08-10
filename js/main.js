@@ -1,4 +1,4 @@
-$.getJSON("http://206.189.95.247:8000/posts/", function( resp ) {
+$.getJSON("http://206.189.95.247:8000/posts", function( resp ) {
     // Log each key in the response data
     $.each( resp, function( index, value ) {
     	var row = '<div class="row"><div class="col-md-7 mb-4">'+
@@ -11,7 +11,7 @@ $.getJSON("http://206.189.95.247:8000/posts/", function( resp ) {
     	$('#container-post').append(row);
     });
 });
-$.getJSON("http://206.189.95.247:8000/post-categories/", function( resp ) {
+$.getJSON("http://206.189.95.247:8000/post-categories", function( resp ) {
     // Log each key in the response data
     $.each( resp, function( index, value ) {
     	var row_category = '<option value="'+resp[index].pk+'">'+resp[index].name+'</option>';
@@ -27,7 +27,7 @@ $('#post').click(function(){
 	console.log(fromdata);
 	$.ajax({
 		type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : 'http://206.189.95.247:8000/posts/', // the url where we want to POST
+        url         : 'http://206.189.95.247:8000/posts', // the url where we want to POST
         data        : fromdata, // our data object
         xhrFields: {
 		    withCredentials: true
